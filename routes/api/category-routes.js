@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
        // include its associated Products
       include: [{model: Product}],
     });
-res.status(200).json(categoriesData);
+res.status(200).json(categoryData);
 } catch (err) {
   res.status(500).json(err)
 }
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
   try {
     const updatedEntries = await Category.update(req.body, {
       where: {
-        id: req.paarams.id,
+        id: req.params.id,
       },
     });
     if (updatedEntries) { 
